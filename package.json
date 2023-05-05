@@ -1,0 +1,28 @@
+{
+  "name": "authservice",
+  "version": "1.0.0",
+  "description": "authentication and authorization",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/futoid/authService.git"
+  },
+  "author": "aliek mandal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/futoid/authService/issues"
+  },
+  "homepage": "https://github.com/futoid/authService#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mysql2": "^3.2.4",
+    "nodemon": "^2.0.22",
+    "sequelize": "^6.31.1",
+    "sequelize-cli": "^6.6.0"
+  }
+}
