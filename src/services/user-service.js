@@ -55,19 +55,38 @@ class UserService {
       //   throw {error : "No user found"};
       // }
       const passwordMatch = this.verifyPassword(password , user.dataValues.password);
-      //console.log(passwordMatch);
       if(!passwordMatch){
         console.log("Wrong Password");
         throw{error : "Wrong Password"};
       }
       const userToken = this.createToken({email: user.dataValues.email ,id : user.dataValues.id });
-      //console.log(userToken);
       return userToken;
     } 
     catch (error) {
         console.log("Error while signing in");
         throw {error};
     }
+  }
+
+  async isAuthenticated(token){
+    try{
+      const response = this.verifyToken(token);
+      if(!response){
+        throw {error : 'Invalid Token'};
+      }
+      const user = await this.userRepository.getUserById(response.id);
+      if(!user){
+        throw {error : 'No user found'};
+      }
+      return user;
+    }
+    catch(error){
+      console.log("Error while authenticating");
+      throw {error};
+    }
+    
+
+
   }
 }
 
