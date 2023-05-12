@@ -84,10 +84,19 @@ class UserService {
       console.log("Error while authenticating");
       throw {error};
     }
-    
-
-
   }
+
+  async isAdmin(userId){
+    try{
+      const response = await this.userRepository.isAdmin(userId);
+      return response;
+    }
+    catch(error){
+      console.log("Error in admin verfication");
+      throw {error};
+    }
+  }
+
 }
 
 module.exports = UserService;
